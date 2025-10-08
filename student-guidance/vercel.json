@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.py"
+    }
+  ],
+  "env": {
+    "FLASK_ENV": "production",
+    "SECRET_KEY": "supersecretkey123",
+    "DATABASE_URL": "sqlite:///site.db",
+    "MODEL_PATH": "model/model.pkl",
+    "LABEL_ENCODER_PATH": "model/label_encoder.pkl",
+    "MAIL_SERVER": "smtp.gmail.com",
+    "MAIL_PORT": "587",
+    "MAIL_USE_TLS": "True"
+  }
+}
