@@ -376,3 +376,202 @@ input:focus, select:focus {
         margin: 1rem;
     }
 }
+/* =========================
+   MOBILE OPTIMIZED STYLES
+   ========================= */
+
+/* Small devices: phones (max-width: 576px) */
+@media (max-width: 576px) {
+    
+    /* General body adjustments */
+    body {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+    h5 { font-size: 1.1rem; }
+    h6 { font-size: 1rem; }
+
+    /* Container */
+    .container {
+        padding: 1rem 0.75rem;
+        width: 100%;
+    }
+
+    /* Navbar */
+    .navbar {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.5rem 1rem;
+    }
+    .navbar .logo {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+    .navbar-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-links .nav-link {
+        margin: 0 auto;
+        padding: 0.5rem 1rem;
+    }
+    .search-form {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    .search-input, .search-button {
+        width: 100%;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        padding: 3rem 1rem;
+    }
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    /* Cards */
+    .card {
+        padding: 1.5rem;
+        margin: 1rem 0;
+    }
+    .card-header {
+        font-size: 1rem;
+        padding-bottom: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+        width: 100%;
+    }
+    .btn-large {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+    }
+
+    /* Forms */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="search"],
+    select,
+    textarea,
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 0.95rem;
+        padding: 0.75rem;
+        border-radius: 8px;
+    }
+    .form-group label {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Login, Forgot, Reset Forms */
+    .login-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .info-card {
+        padding: 1.5rem;
+    }
+    .forgot-password-container,
+    .reset-password-container {
+        max-width: 100%;
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .forgot-password-container h2,
+    .reset-password-container h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .forgot-password-container p,
+    .reset-password-container p {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+    }
+    .footer-links li {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Dashboard Grids */
+    .dashboard-main-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .analytics-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Stats Cards */
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    .stat-icon { font-size: 2rem; margin: 0 auto; }
+    .stat-value { font-size: 1.5rem; }
+    .stat-label { font-size: 0.9rem; }
+
+    /* Recommendations */
+    .recommendation-highlight {
+        padding: 1rem;
+        margin: 1rem 0;
+        font-size: 0.95rem;
+    }
+
+    /* Career Detail Skills */
+    .skill-list {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .skill-item { padding: 0.35rem 0.8rem; font-size: 0.9rem; }
+
+    /* Flash Messages */
+    .flash { font-size: 0.9rem; padding: 0.8rem 1rem; }
+
+    /* Tables */
+    .styled-table th, .styled-table td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    /* Icons & Features List */
+    .info-feature-item .icon { font-size: 1.25rem; margin-right: 0.5rem; }
+
+    /* Goal Items */
+    .goal-item { font-size: 0.95rem; padding: 0.5rem 0.75rem; }
+
+    /* Misc */
+    .container, .card, .form-card {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .auth-flash {
+        max-width: 95%;
+        margin: 1rem auto;
+    }
+}
