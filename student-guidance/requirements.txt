@@ -2,6 +2,8 @@ Flask
 Flask-SQLAlchemy
 Flask-Login
 Flask-Bcrypt
-pandas
 scikit-learn
-matplotlib
+pandas
+numpy
+python-dotenv
+gunicorn
