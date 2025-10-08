@@ -371,7 +371,44 @@ input:focus, select:focus {
 /* =========================
    MOBILE OPTIMIZED STYLES
    ========================= */
+/* Mobile-only Navbar Toggle */
+@media (max-width: 768px) {
 
+    /* Show toggle button */
+    .navbar-toggle {
+        display: block;
+    }
+
+    /* Hide links/buttons by default */
+    .navbar-links,
+    .navbar-buttons {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Show when toggled */
+    .navbar-links.show,
+    .navbar-buttons.show {
+        display: flex;
+    }
+
+    /* Navbar links styling for mobile */
+    .navbar-links .nav-link {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 0;
+        text-align: left;
+        background: var(--surface-color);
+        margin-bottom: 0.25rem;
+    }
+
+    .navbar-buttons .btn {
+        width: 90%;
+        margin: 0.25rem auto;
+    }
+}
 /* =========================
    Advanced Mobile-Only Styles
    Screens <= 768px
