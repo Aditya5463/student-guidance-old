@@ -368,114 +368,250 @@ input:focus, select:focus {
     margin: 1rem auto;
 }
 
-/* Responsive tweaks */
-@media (max-width: 576px) {
-    .forgot-password-container,
-    .reset-password-container {
-        padding: 1rem;
-        margin: 1rem;
-    }
-}
 /* =========================
    MOBILE OPTIMIZED STYLES
    ========================= */
 
-/* Small devices: phones (max-width: 576px) */
-@media (max-width: 576px) {
-    
-    /* General body adjustments */
-    body {
-        font-size: 14px;
-        line-height: 1.6;
-    }
+/* =========================
+   Advanced Mobile-Only Styles
+   Screens <= 768px
+=========================== */
+@media (max-width: 768px) {
 
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.75rem; }
-    h3 { font-size: 1.5rem; }
-    h4 { font-size: 1.25rem; }
-    h5 { font-size: 1.1rem; }
-    h6 { font-size: 1rem; }
-
-    /* Container */
-    .container {
-        padding: 1rem 0.75rem;
-        width: 100%;
-    }
-
-    /* Navbar */
+    /* --- Navbar --- */
     .navbar {
         flex-direction: column;
-        gap: 0.75rem;
-        padding: 0.5rem 1rem;
-    }
-    .navbar .logo {
-        font-size: 1.25rem;
-        text-align: center;
-    }
-    .navbar-links {
-        display: flex;
-        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
         gap: 0.5rem;
-        width: 100%;
-        text-align: center;
-    }
-    .navbar-links .nav-link {
-        margin: 0 auto;
-        padding: 0.5rem 1rem;
-    }
-    .search-form {
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
-    }
-    .search-input, .search-button {
-        width: 100%;
     }
 
-    /* Hero Section */
+    .navbar .logo {
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+
+    .navbar-links.show {
+        max-height: 600px; /* enough for full menu */
+    }
+
+    .navbar-links .nav-link {
+        padding: 0.75rem 0;
+        width: 100%;
+        border-radius: 0;
+        text-align: left;
+        font-size: 1rem;
+    }
+
+    .navbar-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 0.5rem;
+    }
+
+    .navbar-toggle {
+        display: block;
+        font-size: 1.8rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--secondary-color);
+        margin-left: auto;
+    }
+
+    /* --- Hero Section --- */
     .hero-section {
         padding: 3rem 1rem;
+        text-align: center;
     }
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
         line-height: 1.2;
     }
+    .hero-subtitle { font-size: 1rem; }
 
-    /* Cards */
+    /* --- Containers & Grids --- */
+    .container {
+        padding: 1rem;
+    }
+
+    .analytics-grid,
+    .dashboard-main-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .login-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* --- Cards --- */
     .card {
         padding: 1.5rem;
-        margin: 1rem 0;
+        margin-bottom: 1.5rem;
+        border-radius: 12px;
     }
-    .card-header {
-        font-size: 1rem;
-        padding-bottom: 0.75rem;
-        margin-bottom: 1rem;
+    .card:hover {
+        transform: none; /* remove hover effect on mobile */
+        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
     }
 
-    /* Buttons */
+    /* --- Buttons --- */
     .btn {
-        padding: 0.75rem 1rem;
-        font-size: 0.95rem;
+        font-size: 1rem;
+        padding: 0.8rem 1.8rem;
+        border-radius: 10px;
         width: 100%;
     }
-    .btn-large {
-        padding: 0.9rem 2rem;
-        font-size: 1rem;
+    .btn:hover {
+        transform: translateY(0); /* remove hover translate on mobile */
+        filter: brightness(1.05);
     }
 
-    /* Forms */
+    /* --- Forms --- */
     input[type="text"],
-    input[type="email"],
     input[type="password"],
-    input[type="search"],
+    input[type="email"],
     select,
-    textarea,
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
+    textarea {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+    .form-group label {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* --- Forgot & Reset Password --- */
+    .forgot-password-container,
+    .reset-password-container {
+        max-width: 95%;
+        margin: 1rem auto;
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    }
+    .forgot-password-container h2,
+    .reset-password-container h2 {
+        font-size: 1.5rem;
+    }
+
+    /* --- Tables --- */
+    .styled-table {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+    }
+    .styled-table th,
+    .styled-table td {
+        padding: 10px 8px;
+        font-size: 0.9rem;
+    }
+
+    /* --- Footer --- */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+    }
+    .footer-links li {
+        margin-bottom: 0.5rem;
+    }
+
+    /* --- Skill Lists & Highlights --- */
+    .skill-list {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    .skill-item {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .recommendation-highlight {
+        padding: 1rem;
         font-size: 0.95rem;
-        padding: 0.75rem;
-        border-radius: 8px;
+    }
+
+    /* --- Flash Messages --- */
+    .flash {
+        font-size: 0.95rem;
+        padding: 0.8rem 1rem;
+    }
+
+    /* --- Text Adjustments --- */
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    p, li { font-size: 0.95rem; line-height: 1.5; }
+
+    /* --- Buttons touch effect --- */
+    .btn:active {
+        transform: scale(0.98);
+        filter: brightness(0.95);
+    }
+
+    /* --- Misc spacing --- */
+    .mt-2 { margin-top: 1.5rem; }
+    .mb-2 { margin-bottom: 1.5rem; }
+
+    /* --- Info cards / login features --- */
+    .info-card { padding: 1.5rem; }
+    .info-feature-item { font-size: 0.95rem; }
+    .info-feature-item .icon { font-size: 1.3rem; margin-right: 0.7rem; }
+
+}
+            }
+    .stat-icon { font-size: 2rem; margin: 0 auto; }
+    .stat-value { font-size: 1.5rem; }
+    .stat-label { font-size: 0.9rem; }
+
+    /* Recommendations */
+    .recommendation-highlight {
+        padding: 1rem;
+        margin: 1rem 0;
+        font-size: 0.95rem;
+    }
+
+    /* Career Detail Skills */
+    .skill-list {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .skill-item { padding: 0.35rem 0.8rem; font-size: 0.9rem; }
+
+    /* Flash Messages */
+    .flash { font-size: 0.9rem; padding: 0.8rem 1rem; }
+
+    /* Tables */
+    .styled-table th, .styled-table td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    /* Icons & Features List */
+    .info-feature-item .icon { font-size: 1.25rem; margin-right: 0.5rem; }
+
+    /* Goal Items */
+    .goal-item { font-size: 0.95rem; padding: 0.5rem 0.75rem; }
+
+    /* Misc */
+    .container, .card, .form-card {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .auth-flash {
+        max-width: 95%;
+        margin: 1rem auto;
     }
     .form-group label {
         font-size: 0.95rem;
@@ -532,46 +668,4 @@ input:focus, select:focus {
         flex-direction: column;
         text-align: center;
         gap: 0.5rem;
-    }
-    .stat-icon { font-size: 2rem; margin: 0 auto; }
-    .stat-value { font-size: 1.5rem; }
-    .stat-label { font-size: 0.9rem; }
-
-    /* Recommendations */
-    .recommendation-highlight {
-        padding: 1rem;
-        margin: 1rem 0;
-        font-size: 0.95rem;
-    }
-
-    /* Career Detail Skills */
-    .skill-list {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    .skill-item { padding: 0.35rem 0.8rem; font-size: 0.9rem; }
-
-    /* Flash Messages */
-    .flash { font-size: 0.9rem; padding: 0.8rem 1rem; }
-
-    /* Tables */
-    .styled-table th, .styled-table td {
-        padding: 8px 10px;
-        font-size: 0.9rem;
-    }
-
-    /* Icons & Features List */
-    .info-feature-item .icon { font-size: 1.25rem; margin-right: 0.5rem; }
-
-    /* Goal Items */
-    .goal-item { font-size: 0.95rem; padding: 0.5rem 0.75rem; }
-
-    /* Misc */
-    .container, .card, .form-card {
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    .auth-flash {
-        max-width: 95%;
-        margin: 1rem auto;
-    }
-}
+       
