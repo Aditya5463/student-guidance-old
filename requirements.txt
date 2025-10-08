@@ -1,9 +1,10 @@
-Flask
-Flask-SQLAlchemy
-Flask-Login
-Flask-Bcrypt
-scikit-learn
-pandas
-numpy
-python-dotenv
-gunicorn
+Flask==3.1.2
+Flask-Login==0.6.3
+Flask-Bcrypt==1.0.1
+Flask-SQLAlchemy==3.1.1
+python-dotenv==1.1.1
+gunicorn==23.0.0
+pandas==2.3.3
+numpy==2.3.3
+scikit-learn==1.6.1   # 👈 force the same version you used locally
+scipy==1.16.2
