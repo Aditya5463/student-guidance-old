@@ -477,22 +477,23 @@ def verify_otp():
         else:
             flash('Invalid or expired OTP.', 'danger')
     return render_template('auth/verify_otp.html', email=email)
-
-from smtplib import SMTP
-from email.message import EmailMessage
+# Import at the top if not already
 import os
+from smtplib import SMTP, SMTPException
+from email.message import EmailMessage
 
 def send_email(to_email, subject, otp=None, purpose="login"):
     """
-    Sends a professional-looking email with or without OTP.
-    Works offline and online (Render, etc.).
+    Sends a professional-looking email.
+    
+    :param to_email: Recipient email
+    :param subject: Email subject
+    :param otp: Optional OTP to include
+    :param purpose: Reason for sending (login, reset password, etc.)
     """
-
-    app_name = "StudentCare"  
-    sender_email = "studentcareer.guidance.pro@gmail.com" 
-    sender_password = "gykj pray wjfl hnzz"
-
-    # --- Email body ---
+    app_name = os.getenv("APP_NAME", "Student Career Guidance")
+    
+    # Construct professional email body
     if otp:
         body = f"""
 Hello,
@@ -509,23 +510,20 @@ Thank you,
 {app_name} Team
 """
     else:
-        body = f"Hello,\n\nThis is a notification from {app_name}.\n\nThank you,\n{app_name} Team"
-
-    # --- Prepare message ---
+        body = "Hello,\n\nThis is a notification from your application.\n\nThank you,\nTeam"
+    
+    # Create EmailMessage object
     msg = EmailMessage()
     msg['Subject'] = subject
-    msg['From'] = sender_email
+    msg['From'] = os.getenv('MAIL_USERNAME')
     msg['To'] = to_email
     msg.set_content(body)
 
-    # --- SMTP Configuration (Gmail default) ---
-    mail_server = "smtp.gmail.com"
-    mail_port = 587  # TLS port
-
     try:
-        with SMTP(mail_server, mail_port) as server:
-            server.starttls()
-            server.login(sender_email, sender_password)
+        with SMTP(os.getenv('MAIL_SERVER'), int(os.getenv('MAIL_PORT'))) as server:
+            if os.getenv("MAIL_USE_TLS", "False").lower() == "true":
+                server.starttls()
+            server.login(os.getenv('MAIL_USERNAME'), os.getenv('MAIL_PASSWORD'))
             server.send_message(msg)
         print(f"✅ Email sent to {to_email}")
     except Exception as e:
